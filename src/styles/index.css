@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.stellar-tx-builder {
+  --stb-accent: theme(colors.stellar.500);
+  --stb-bg: theme(colors.void.DEFAULT);
+  --stb-surface: theme(colors.void.50);
+  --stb-border: theme(colors.slate.800);
+  --stb-text: theme(colors.slate.200);
+  --stb-text-muted: theme(colors.slate.500);
+}
+
+.stellar-tx-builder * {
+  box-sizing: border-box;
+}
+
+/* Scrollbar styling */
+.stellar-tx-builder ::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.stellar-tx-builder ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.stellar-tx-builder ::-webkit-scrollbar-thumb {
+  background: theme(colors.slate.700);
+  border-radius: 2px;
+}
+
+.stellar-tx-builder ::-webkit-scrollbar-thumb:hover {
+  background: theme(colors.slate.600);
+}
