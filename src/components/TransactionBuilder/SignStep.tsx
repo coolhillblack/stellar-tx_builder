@@ -1,10 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { clsx } from "clsx";
 import { isValidSecretKey } from "../../lib/stellar";
+import {
+  isFreighterInstalled,
+  signWithFreighter,
+  isAlbedoAvailable,
+  signWithAlbedo,
+} from "../../wallets";
 
 interface SignStepProps {
   xdr: string | null;
   signedXdr: string | null;
+  networkPassphrase?: string;
   onSign: (secretKey: string) => void;
   onSignedXdrChange: (xdr: string) => void;
   onNext: () => void;
@@ -15,17 +22,54 @@ interface SignStepProps {
 export function SignStep({
   xdr,
   signedXdr,
+  networkPassphrase = "Test SDF Network ; September 2015",
   onSign,
   onSignedXdrChange,
   onNext,
   onBack,
   showSubmit,
 }: SignStepProps) {
-  const [secretKey, setSecretKey] = useState("");
+const [secretKey, setSecretKey] = useState("");
   const [signingMode, setSigningMode] = useState<"manual" | "paste">("manual");
   const [showKey, setShowKey] = useState(false);
   const [signError, setSignError] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
+  const [walletSigning, setWalletSigning] = useState(false);
+  const [freighterAvailable, setFreighterAvailable] = useState(false);
+  const [albedoAvailable, setAlbedoAvailable] = useState(false);
+
+  useEffect(() => {
+    setFreighterAvailable(isFreighterInstalled());
+    setAlbedoAvailable(isAlbedoAvailable());
+  }, []);
+
+  const handleFreighterSign = async () => {
+    if (!xdr) return;
+    setWalletSigning(true);
+    setSignError(null);
+    try {
+      const signed = await signWithFreighter(xdr, networkPassphrase);
+      onSignedXdrChange(signed);
+    } catch (e) {
+      setSignError((e as Error).message);
+    } finally {
+      setWalletSigning(false);
+    }
+  };
+
+  const handleAlbedoSign = async () => {
+    if (!xdr) return;
+    setWalletSigning(true);
+    setSignError(null);
+    try {
+      const signed = await signWithAlbedo(xdr, networkPassphrase);
+      onSignedXdrChange(signed);
+    } catch (e) {
+      setSignError((e as Error).message);
+    } finally {
+      setWalletSigning(false);
+    }
+  };
 
   const isKeyValid = isValidSecretKey(secretKey);
 
@@ -54,6 +98,51 @@ export function SignStep({
         </p>
       </div>
 
+      {/* Wallet signing */}
+      {(freighterAvailable || albedoAvailable) && (
+        <div className="space-y-2">
+          <p className="text-xs font-medium text-slate-400 uppercase tracking-wider">Sign with wallet</p>
+          <div className="flex gap-2 flex-wrap">
+            {freighterAvailable && (
+              <button
+                type="button"
+                onClick={handleFreighterSign}
+                disabled={!xdr || walletSigning}
+                className="px-4 py-2 rounded-lg text-xs font-medium bg-blue-700 hover:bg-blue-600 text-white disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+              >
+                {walletSigning ? "Signing…" : "🔐 Sign with Freighter"}
+              </button>
+            )}
+            {albedoAvailable && (
+              <button
+                type="button"
+                onClick={handleAlbedoSign}
+                disabled={!xdr || walletSigning}
+                className="px-4 py-2 rounded-lg text-xs font-medium bg-purple-700 hover:bg-purple-600 text-white disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+              >
+                {walletSigning ? "Signing…" : "🔐 Sign with Albedo"}
+              </button>
+            )}
+          </div>
+          <div className="border-t border-slate-800 pt-3 mt-1">
+            <p className="text-xs text-slate-500">Or sign manually below</p>
+          </div>
+        </div>
+      )}
+
+      {!freighterAvailable && !albedoAvailable && (
+        <div className="bg-void-50 border border-slate-700 rounded-lg p-3">
+          <p className="text-xs text-slate-500">
+            💡 No wallet extension detected. Install{" "}
+            <a href="https://www.freighter.app/" target="_blank" rel="noreferrer" className="text-stellar-400 underline">Freighter</a>
+            {" "}or use{" "}
+            <a href="https://albedo.link/" target="_blank" rel="noreferrer" className="text-stellar-400 underline">Albedo</a>
+            {" "}to sign without exposing your secret key.
+          </p>
+        </div>
+      )}
+
+      
       {/* Signing mode */}
       <div className="flex gap-2">
         {(["manual", "paste"] as const).map((mode) => (
