@@ -2,6 +2,7 @@ import React from "react";
 import { clsx } from "clsx";
 import type { TransactionParams } from "../../types";
 import { isValidPublicKey } from "../../lib/stellar";
+import { XdrImport } from './XdrImport';
 
 interface ConfigureStepProps {
   params: Partial<TransactionParams>;
