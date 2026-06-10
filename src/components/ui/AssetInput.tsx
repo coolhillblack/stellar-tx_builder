@@ -35,38 +35,44 @@ export function AssetInput({ value, onChange, label, error, required }: AssetInp
 
   return (
     <div className="space-y-2">
+      role="radiogroup"
+aria-label="Asset type"
       {label && (
         <label className="block text-xs font-medium text-slate-400 uppercase tracking-wider">
           {label} {required && <span className="text-stellar-400">*</span>}
         </label>
       )}
 
-      <div className="flex gap-2">
-        <button
-          type="button"
-          onClick={() => handleTypeChange("native")}
-          className={clsx(
-            "px-3 py-1.5 rounded text-xs font-mono font-medium transition-all",
-            assetType === "native"
-              ? "bg-stellar-600 text-white"
-              : "bg-void-200 text-slate-400 border border-slate-700 hover:border-stellar-600"
-          )}
-        >
-          XLM
-        </button>
-        <button
-          type="button"
-          onClick={() => handleTypeChange("custom")}
-          className={clsx(
-            "px-3 py-1.5 rounded text-xs font-mono font-medium transition-all",
-            assetType === "custom"
-              ? "bg-stellar-600 text-white"
-              : "bg-void-200 text-slate-400 border border-slate-700 hover:border-stellar-600"
-          )}
-        >
-          Custom
-        </button>
-      </div>
+      <div className="flex gap-2" role="radiogroup" aria-label="Asset type">
+  <button
+    type="button"
+    role="radio"
+    aria-checked={assetType === "native"}
+    onClick={() => handleTypeChange("native")}
+    className={clsx(
+      "px-3 py-1.5 rounded text-xs font-mono font-medium transition-all",
+      assetType === "native"
+        ? "bg-stellar-600 text-white"
+        : "bg-void-200 text-slate-400 border border-slate-700 hover:border-stellar-600"
+    )}
+  >
+    XLM
+  </button>
+  <button
+    type="button"
+    role="radio"
+    aria-checked={assetType === "custom"}
+    onClick={() => handleTypeChange("custom")}
+    className={clsx(
+      "px-3 py-1.5 rounded text-xs font-mono font-medium transition-all",
+      assetType === "custom"
+        ? "bg-stellar-600 text-white"
+        : "bg-void-200 text-slate-400 border border-slate-700 hover:border-stellar-600"
+    )}
+  >
+    Custom
+  </button>
+</div>
 
       {assetType === "custom" && (
         <div className="space-y-2 animate-slide-up">

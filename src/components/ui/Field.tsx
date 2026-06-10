@@ -7,7 +7,7 @@ interface FieldProps {
   field: FieldDefinition;
   value: unknown;
   onChange: (value: unknown) => void;
-  error?: string;
+  error?: string | null;
 }
 
 export function Field({ field, value, onChange, error }: FieldProps) {
@@ -97,6 +97,11 @@ export function Field({ field, value, onChange, error }: FieldProps) {
   };
 
   return (
+    {error && (
+  <p style={{ color: 'red', fontSize: '12px', marginTop: '4px' }}>
+    {error}
+  </p>
+)}
     <div className="space-y-1.5">
       {field.type !== "asset" && (
         <label className="block text-xs font-medium text-slate-400 uppercase tracking-wider">

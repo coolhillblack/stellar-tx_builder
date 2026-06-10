@@ -32,6 +32,9 @@ export function OperationsStep({
   const filteredOps = OPERATION_DEFINITIONS.filter((d) => d.category === selectedCategory);
 
   const canProceed = operations.length > 0;
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string | null>>({});
+  const err = fieldDef.validate?.(newValue) ?? null;
+setFieldErrors(prev => ({ ...prev, [fieldKey]: err }));
 
   return (
     <div className="space-y-5 animate-slide-up">
