@@ -84,6 +84,8 @@ export interface SubmitResult {
   successful: boolean;
 }
 
+export type Theme = 'dark' | 'light';
+
 export interface TransactionBuilderProps {
   /** Stellar network to use */
   network?: Network;
@@ -109,6 +111,7 @@ export interface TransactionBuilderProps {
   allowManualSigning?: boolean;
   /** Initial operations to pre-populate */
   initialOperations?: Partial<Operation>[];
+  theme?: Theme;
 }
 
 export interface ThemeConfig {

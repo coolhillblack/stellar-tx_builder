@@ -20,6 +20,7 @@ export function TransactionBuilder({
   onSubmitted,
   className,
   showSubmit = true,
+  theme = 'dark',
 }: TransactionBuilderProps) {
   const {
     state,
@@ -97,6 +98,7 @@ export function TransactionBuilder({
   const networkLabel = network.charAt(0).toUpperCase() + network.slice(1);
 
   return (
+    <div className={`stx-root stx-theme-${theme} ${className ?? ''}`}>
     <div
       className={clsx(
         "stellar-tx-builder",
@@ -219,6 +221,7 @@ export function TransactionBuilder({
           />
         )}
       </div>
+    </div>
     </div>
   );
 }

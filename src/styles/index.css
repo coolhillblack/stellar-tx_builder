@@ -35,3 +35,22 @@
 .stellar-tx-builder ::-webkit-scrollbar-thumb:hover {
   background: theme(colors.slate.600);
 }
+
+/* Light theme overrides */
+.stx-theme-light {
+  --stx-bg: #ffffff;
+  --stx-bg-secondary: #f3f4f6;
+  --stx-text: #111827;
+  --stx-text-secondary: #4b5563;
+  --stx-border: #d1d5db;
+  --stx-accent: #2563eb;
+}
+
+.stx-theme-dark {
+  --stx-bg: #111827;
+  --stx-bg-secondary: #1f2937;
+  --stx-text: #f9fafb;
+  --stx-text-secondary: #9ca3af;
+  --stx-border: #374151;
+  --stx-accent: #3b82f6;
+}
