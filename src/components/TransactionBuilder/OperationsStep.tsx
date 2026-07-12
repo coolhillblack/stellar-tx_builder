@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+﻿import { useState } from "react";
 import { clsx } from "clsx";
 import type { Operation, OperationType } from "../../types";
 import {
@@ -32,9 +32,6 @@ export function OperationsStep({
   const filteredOps = OPERATION_DEFINITIONS.filter((d) => d.category === selectedCategory);
 
   const canProceed = operations.length > 0;
-  const [fieldErrors, setFieldErrors] = useState<Record<string, string | null>>({});
-  const err = fieldDef.validate?.(newValue) ?? null;
-setFieldErrors(prev => ({ ...prev, [fieldKey]: err }));
 
   return (
     <div className="space-y-5 animate-slide-up">
@@ -42,7 +39,7 @@ setFieldErrors(prev => ({ ...prev, [fieldKey]: err }));
         <div>
           <h2 className="text-lg font-bold text-slate-100 mb-1">Add Operations</h2>
           <p className="text-sm text-slate-500">
-            A transaction can contain 1–100 operations
+            A transaction can contain 1â€“100 operations
           </p>
         </div>
         <span className="text-xs font-mono bg-void-200 border border-slate-700 px-2 py-1 rounded text-stellar-400">
@@ -67,14 +64,14 @@ setFieldErrors(prev => ({ ...prev, [fieldKey]: err }));
                   onClick={() => setExpandedOp(isExpanded ? null : op.id)}
                   className="w-full flex items-center gap-3 px-4 py-3 hover:bg-void-200 transition-colors"
                 >
-                  <span className="text-lg">{def?.icon ?? "⚡"}</span>
+                  <span className="text-lg">{def?.icon ?? "âš¡"}</span>
                   <div className="flex-1 text-left">
                     <div className="text-sm font-semibold text-slate-200">
                       Op {idx + 1}: {def?.label ?? op.type}
                     </div>
-                    {op.params.destination && (
+                    {Boolean(op.params.destination) && (
                       <div className="text-xs text-slate-600 font-mono truncate">
-                        → {String(op.params.destination).slice(0, 16)}...
+                        â†’ {String(op.params.destination).slice(0, 16)}...
                       </div>
                     )}
                   </div>
@@ -226,7 +223,7 @@ setFieldErrors(prev => ({ ...prev, [fieldKey]: err }));
           onClick={onBack}
           className="px-4 py-2.5 rounded-lg border border-slate-700 text-slate-400 text-sm hover:border-slate-500 hover:text-slate-200 transition-all"
         >
-          ← Back
+          â† Back
         </button>
         <button
           type="button"
@@ -239,9 +236,12 @@ setFieldErrors(prev => ({ ...prev, [fieldKey]: err }));
               : "bg-void-200 text-slate-600 cursor-not-allowed border border-slate-700"
           )}
         >
-          {canProceed ? `Preview XDR (${operations.length} op${operations.length > 1 ? "s" : ""}) →` : "Add at least one operation"}
+          {canProceed ? `Preview XDR (${operations.length} op${operations.length > 1 ? "s" : ""}) â†’` : "Add at least one operation"}
         </button>
       </div>
     </div>
   );
 }
+
+
+

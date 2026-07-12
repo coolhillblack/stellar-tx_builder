@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+﻿import { useState } from "react";
 import { clsx } from "clsx";
 
 interface PreviewStepProps {
@@ -132,7 +132,7 @@ export function PreviewStep({ xdr, loading, error, onBuild, onNext, onBack }: Pr
           onClick={onBack}
           className="px-4 py-2.5 rounded-lg border border-slate-700 text-slate-400 text-sm hover:border-slate-500 hover:text-slate-200 transition-all"
         >
-          ← Back
+          â† Back
         </button>
         <button
           type="button"
@@ -145,9 +145,10 @@ export function PreviewStep({ xdr, loading, error, onBuild, onNext, onBack }: Pr
               : "bg-void-200 text-slate-600 cursor-not-allowed border border-slate-700"
           )}
         >
-          Sign Transaction →
+          Sign Transaction â†’
         </button>
       </div>
     </div>
   );
 }
+

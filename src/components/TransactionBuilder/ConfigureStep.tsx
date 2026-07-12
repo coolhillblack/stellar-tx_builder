@@ -1,8 +1,6 @@
-import React from "react";
-import { clsx } from "clsx";
+﻿import { clsx } from "clsx";
 import type { TransactionParams } from "../../types";
 import { isValidPublicKey } from "../../lib/stellar";
-import { XdrImport } from './XdrImport';
 
 interface ConfigureStepProps {
   params: Partial<TransactionParams>;
@@ -173,8 +171,9 @@ export function ConfigureStep({ params, onChange, onNext, network }: ConfigureSt
             : "bg-void-200 text-slate-600 cursor-not-allowed border border-slate-700"
         )}
       >
-        {canProceed ? "Add Operations →" : "Enter a valid source account to continue"}
+        {canProceed ? "Add Operations â†’" : "Enter a valid source account to continue"}
       </button>
     </div>
   );
 }
+

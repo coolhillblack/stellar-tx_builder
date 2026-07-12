@@ -1,4 +1,4 @@
-// Main component
+﻿// Main component
 export { TransactionBuilder } from "./components/TransactionBuilder";
 
 // Sub-components for advanced usage
@@ -51,8 +51,3 @@ export {
   OPERATION_CATEGORIES,
   getOperationDefinition,
 } from "./lib/operationDefinitions";
-
-*:focus-visible {
-  outline: 2px solid #6366f1;
-  outline-offset: 2px;
-}
