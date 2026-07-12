@@ -1,4 +1,4 @@
-import React from "react";
+﻿import { Fragment } from "react";
 import { clsx } from "clsx";
 import type { BuildStep } from "../../types";
 
@@ -27,7 +27,7 @@ export function StepIndicator({ currentStep, onStepClick, completedSteps }: Step
         const isClickable = isCompleted || idx <= currentIdx;
 
         return (
-          <React.Fragment key={step.key}>
+          <Fragment key={step.key}>
             <button
               onClick={() => isClickable && onStepClick?.(step.key)}
               disabled={!isClickable}
@@ -77,9 +77,13 @@ export function StepIndicator({ currentStep, onStepClick, completedSteps }: Step
                 )}
               />
             )}
-          </React.Fragment>
+          </Fragment>
         );
       })}
     </div>
   );
 }
+
+
+
+
