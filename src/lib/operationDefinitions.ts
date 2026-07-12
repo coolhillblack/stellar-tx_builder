@@ -1,11 +1,11 @@
-import type { OperationDefinition } from "../types";
+﻿import type { OperationDefinition } from "../types";
 
 export const OPERATION_DEFINITIONS: OperationDefinition[] = [
   {
   type: "payment",
   label: "Payment",
   description: "Send an amount of an asset to another account",
-  icon: "💸",
+  icon: "ðŸ’¸",
   category: "payments",
   fields: [
     {
@@ -45,7 +45,7 @@ export const OPERATION_DEFINITIONS: OperationDefinition[] = [
     type: "create_account",
     label: "Create Account",
     description: "Fund a new account by transferring XLM to it",
-    icon: "🆕",
+    icon: "ðŸ†•",
     category: "account",
     fields: [
       {
@@ -69,7 +69,7 @@ export const OPERATION_DEFINITIONS: OperationDefinition[] = [
     type: "path_payment_strict_send",
     label: "Path Payment (Strict Send)",
     description: "Send an exact amount, receive at least a minimum",
-    icon: "🔀",
+    icon: "ðŸ”€",
     category: "payments",
     fields: [
       {
@@ -111,7 +111,7 @@ export const OPERATION_DEFINITIONS: OperationDefinition[] = [
     type: "path_payment_strict_receive",
     label: "Path Payment (Strict Receive)",
     description: "Receive an exact amount, send up to a maximum",
-    icon: "↩️",
+    icon: "â†©ï¸",
     category: "payments",
     fields: [
       {
@@ -153,7 +153,7 @@ export const OPERATION_DEFINITIONS: OperationDefinition[] = [
     type: "manage_sell_offer",
     label: "Manage Sell Offer",
     description: "Create, update or delete a sell offer on the DEX",
-    icon: "📉",
+    icon: "ðŸ“‰",
     category: "offers",
     fields: [
       {
@@ -195,7 +195,7 @@ export const OPERATION_DEFINITIONS: OperationDefinition[] = [
     type: "manage_buy_offer",
     label: "Manage Buy Offer",
     description: "Create, update or delete a buy offer on the DEX",
-    icon: "📈",
+    icon: "ðŸ“ˆ",
     category: "offers",
     fields: [
       {
@@ -237,7 +237,7 @@ export const OPERATION_DEFINITIONS: OperationDefinition[] = [
     type: "change_trust",
     label: "Change Trust",
     description: "Add, update or remove a trustline for an asset",
-    icon: "🤝",
+    icon: "ðŸ¤",
     category: "trustlines",
     fields: [
       {
@@ -259,7 +259,7 @@ export const OPERATION_DEFINITIONS: OperationDefinition[] = [
     type: "set_options",
     label: "Set Options",
     description: "Set account flags, signers, thresholds and more",
-    icon: "⚙️",
+    icon: "âš™ï¸",
     category: "account",
     fields: [
       {
@@ -316,7 +316,7 @@ export const OPERATION_DEFINITIONS: OperationDefinition[] = [
     type: "account_merge",
     label: "Account Merge",
     description: "Transfer XLM balance to another account and remove this account",
-    icon: "🔗",
+    icon: "ðŸ”—",
     category: "account",
     fields: [
       {
@@ -333,7 +333,7 @@ export const OPERATION_DEFINITIONS: OperationDefinition[] = [
     type: "manage_data",
     label: "Manage Data",
     description: "Set, update or delete a data entry on an account",
-    icon: "📝",
+    icon: "ðŸ“",
     category: "account",
     fields: [
       {
@@ -357,7 +357,7 @@ export const OPERATION_DEFINITIONS: OperationDefinition[] = [
     type: "bump_sequence",
     label: "Bump Sequence",
     description: "Increase account sequence number to a specific value",
-    icon: "⏭️",
+    icon: "â­ï¸",
     category: "advanced",
     fields: [
       {
@@ -373,7 +373,7 @@ export const OPERATION_DEFINITIONS: OperationDefinition[] = [
     type: "create_claimable_balance",
     label: "Create Claimable Balance",
     description: "Lock assets with claimant conditions",
-    icon: "🎁",
+    icon: "ðŸŽ",
     category: "advanced",
     fields: [
       {
@@ -395,7 +395,7 @@ export const OPERATION_DEFINITIONS: OperationDefinition[] = [
     type: "claim_claimable_balance",
     label: "Claim Claimable Balance",
     description: "Claim a claimable balance by its ID",
-    icon: "🎯",
+    icon: "ðŸŽ¯",
     category: "advanced",
     fields: [
       {
@@ -412,7 +412,7 @@ export const OPERATION_DEFINITIONS: OperationDefinition[] = [
     type: "invoke_host_function",
     label: "Invoke Host Function (Soroban)",
     description: "Call a Soroban smart contract function",
-    icon: "🚀",
+    icon: "ðŸš€",
     category: "soroban",
     fields: [
       {

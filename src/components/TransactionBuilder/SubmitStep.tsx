@@ -1,5 +1,4 @@
-import React from "react";
-import { clsx } from "clsx";
+﻿import { clsx } from "clsx";
 import type { SubmitResult } from "../../types";
 
 interface SubmitStepProps {
@@ -54,7 +53,7 @@ export function SubmitStep({
                 result.successful ? "bg-emerald-900/30" : "bg-rose-900/30"
               )}
             >
-              {result.successful ? "✅" : "❌"}
+              {result.successful ? "âœ…" : "âŒ"}
             </div>
             <h3
               className={clsx(
@@ -83,7 +82,7 @@ export function SubmitStep({
               rel="noopener noreferrer"
               className="flex-1 py-2.5 rounded-lg border border-stellar-700 text-stellar-400 text-sm font-semibold text-center hover:bg-stellar-900/20 transition-all"
             >
-              View on Explorer ↗
+              View on Explorer â†—
             </a>
             <button
               type="button"
@@ -114,7 +113,7 @@ export function SubmitStep({
                 onClick={onSubmit}
                 className="w-full py-3 bg-stellar-600 hover:bg-stellar-500 text-white rounded-lg font-bold text-sm transition-all shadow-lg shadow-stellar-900/30"
               >
-                🚀 Submit to {network}
+                ðŸš€ Submit to {network}
               </button>
             </div>
           )}
@@ -141,7 +140,7 @@ export function SubmitStep({
                   onClick={onBack}
                   className="px-4 py-2.5 rounded-lg border border-slate-700 text-slate-400 text-sm hover:border-slate-500 transition-all"
                 >
-                  ← Back
+                  â† Back
                 </button>
                 <button
                   type="button"
@@ -161,7 +160,7 @@ export function SubmitStep({
                 onClick={onBack}
                 className="px-4 py-2.5 rounded-lg border border-slate-700 text-slate-400 text-sm hover:border-slate-500 transition-all"
               >
-                ← Back
+                â† Back
               </button>
             </div>
           )}
@@ -170,3 +169,4 @@ export function SubmitStep({
     </div>
   );
 }
+

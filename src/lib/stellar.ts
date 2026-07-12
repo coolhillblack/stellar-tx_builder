@@ -1,4 +1,4 @@
-import {
+﻿import {
   Networks,
   TransactionBuilder as StellarTxBuilder,
   Operation,
@@ -7,7 +7,7 @@ import {
   Keypair,
   Horizon,
 } from "@stellar/stellar-sdk";
-import type { TransactionParams, TransactionState, Network } from "../types";
+import type { TransactionState, Network } from "../types";
 
 export function getNetworkPassphrase(network: Network, custom?: string): string {
   switch (network) {
@@ -96,7 +96,7 @@ export async function buildTransaction(
         builder.addMemo(Memo.hash(Buffer.from(value, "hex")));
         break;
       case "return":
-        builder.addMemo(Memo.return(Buffer.from(value, "hex")));
+        builder.addMemo(Memo.return(value));
         break;
     }
   }

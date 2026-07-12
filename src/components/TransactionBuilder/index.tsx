@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+﻿import { useState, useCallback, useEffect } from "react";
 import { clsx } from "clsx";
 import { StepIndicator } from "../ui/StepIndicator";
 import { ConfigureStep } from "./ConfigureStep";
@@ -41,7 +41,7 @@ export function TransactionBuilder({
   const [completedSteps, setCompletedSteps] = useState<BuildStep[]>([]);
 
   // Pre-fill source account if provided
-  React.useEffect(() => {
+  useEffect(() => {
     if (sourceAccount) {
       setParams({ sourceAccount });
     }
@@ -222,3 +222,5 @@ export function TransactionBuilder({
     </div>
   );
 }
+
+

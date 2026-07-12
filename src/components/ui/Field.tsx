@@ -1,6 +1,6 @@
 ﻿import { clsx } from "clsx";
 import { AssetInput } from "./AssetInput";
-import type { FieldDefinition } from "../../types";
+import type { FieldDefinition, Asset } from "../../types";
 
 interface FieldProps {
   field: FieldDefinition;
@@ -22,9 +22,9 @@ export function Field({ field, value, onChange, error }: FieldProps) {
       case "asset":
         return (
           <AssetInput
-            value={value as { type: string; code?: string; issuer?: string } | undefined}
+            value={value as Asset | undefined}
             onChange={onChange}
-            error={error}
+            error={error ?? undefined}
           />
         );
 
