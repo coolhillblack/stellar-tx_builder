@@ -82,6 +82,8 @@ export default function MyDApp() {
 
 ---
 
+| `theme`             | `"dark" | "light"`                 | `"dark"`    | Visual theme for the component        |
+
 ## Advanced Usage
 
 ### Composable Steps
