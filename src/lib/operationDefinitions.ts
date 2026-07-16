@@ -2,45 +2,45 @@ import type { OperationDefinition } from "../types";
 
 export const OPERATION_DEFINITIONS: OperationDefinition[] = [
   {
-  type: "payment",
-  label: "Payment",
-  description: "Send an amount of an asset to another account",
-  icon: "💸",
-  category: "payments",
-  fields: [
-    {
-      name: "destination",
-      label: "Destination Account",
-      type: "account",
-      placeholder: "G...",
-      required: true,
-      hint: "The account to receive the payment",
-      validate: (v) => {
-        if (!v || v.trim() === "") return "Account address is required";
-        if (!/^G[A-Z2-7]{55}$/.test(v)) return "Must be a valid Stellar address (starts with G)";
-        return null;
+    type: "payment",
+    label: "Payment",
+    description: "Send an amount of an asset to another account",
+    icon: "💸",
+    category: "payments",
+    fields: [
+      {
+        name: "destination",
+        label: "Destination Account",
+        type: "account",
+        placeholder: "G...",
+        required: true,
+        hint: "The account to receive the payment",
+        validate: (v) => {
+          if (typeof v !== "string" || v.trim() === "") return "Account address is required";
+          if (!/^G[A-Z2-7]{55}$/.test(v)) return "Must be a valid Stellar address (starts with G)";
+          return null;
+        },
       },
-    },
-    {
-      name: "asset",
-      label: "Asset",
-      type: "asset",
-      required: true,
-    },
-    {
-      name: "amount",
-      label: "Amount",
-      type: "amount",
-      placeholder: "0.0000000",
-      required: true,
-      validate: (v) => {
-        if (!v || v.trim() === "") return "Amount is required";
-        if (isNaN(Number(v)) || Number(v) <= 0) return "Must be a positive number";
-        return null;
+      {
+        name: "asset",
+        label: "Asset",
+        type: "asset",
+        required: true,
       },
-    },
-  ],
-},
+      {
+        name: "amount",
+        label: "Amount",
+        type: "amount",
+        placeholder: "0.0000000",
+        required: true,
+        validate: (v) => {
+          if (typeof v !== "string" || v.trim() === "") return "Amount is required";
+          if (isNaN(Number(v)) || Number(v) <= 0) return "Must be a positive number";
+          return null;
+        },
+      },
+    ],
+  },
   {
     type: "create_account",
     label: "Create Account",

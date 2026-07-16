@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+﻿import { useState, useEffect } from "react";
 import { clsx } from "clsx";
 import { isValidSecretKey } from "../../lib/stellar";
 import {
@@ -110,7 +110,7 @@ const [secretKey, setSecretKey] = useState("");
                 disabled={!xdr || walletSigning}
                 className="px-4 py-2 rounded-lg text-xs font-medium bg-blue-700 hover:bg-blue-600 text-white disabled:opacity-50 disabled:cursor-not-allowed transition-all"
               >
-                {walletSigning ? "Signing…" : "🔐 Sign with Freighter"}
+                {walletSigning ? "Signingâ€¦" : "ðŸ” Sign with Freighter"}
               </button>
             )}
             {albedoAvailable && (
@@ -120,7 +120,7 @@ const [secretKey, setSecretKey] = useState("");
                 disabled={!xdr || walletSigning}
                 className="px-4 py-2 rounded-lg text-xs font-medium bg-purple-700 hover:bg-purple-600 text-white disabled:opacity-50 disabled:cursor-not-allowed transition-all"
               >
-                {walletSigning ? "Signing…" : "🔐 Sign with Albedo"}
+                {walletSigning ? "Signingâ€¦" : "ðŸ” Sign with Albedo"}
               </button>
             )}
           </div>
@@ -133,7 +133,7 @@ const [secretKey, setSecretKey] = useState("");
       {!freighterAvailable && !albedoAvailable && (
         <div className="bg-void-50 border border-slate-700 rounded-lg p-3">
           <p className="text-xs text-slate-500">
-            💡 No wallet extension detected. Install{" "}
+            ðŸ’¡ No wallet extension detected. Install{" "}
             <a href="https://www.freighter.app/" target="_blank" rel="noreferrer" className="text-stellar-400 underline">Freighter</a>
             {" "}or use{" "}
             <a href="https://albedo.link/" target="_blank" rel="noreferrer" className="text-stellar-400 underline">Albedo</a>
@@ -157,7 +157,7 @@ const [secretKey, setSecretKey] = useState("");
                 : "bg-void-200 text-slate-400 border border-slate-700 hover:border-stellar-600"
             )}
           >
-            {mode === "manual" ? "🔑 Sign with secret key" : "📋 Paste signed XDR"}
+            {mode === "manual" ? "ðŸ”‘ Sign with secret key" : "ðŸ“‹ Paste signed XDR"}
           </button>
         ))}
       </div>
@@ -260,7 +260,7 @@ const [secretKey, setSecretKey] = useState("");
               onClick={handleCopyXdr}
               className="text-xs text-stellar-400 hover:text-stellar-300 flex items-center gap-1"
             >
-              {copied ? "✓ Copied!" : "📋 Copy unsigned XDR"}
+              {copied ? "âœ“ Copied!" : "ðŸ“‹ Copy unsigned XDR"}
             </button>
           </div>
 
@@ -285,7 +285,7 @@ const [secretKey, setSecretKey] = useState("");
           onClick={onBack}
           className="px-4 py-2.5 rounded-lg border border-slate-700 text-slate-400 text-sm hover:border-slate-500 hover:text-slate-200 transition-all"
         >
-          ← Back
+          â† Back
         </button>
         {showSubmit && (
           <button
@@ -299,10 +299,11 @@ const [secretKey, setSecretKey] = useState("");
                 : "bg-void-200 text-slate-600 cursor-not-allowed border border-slate-700"
             )}
           >
-            Submit to Network →
+            Submit to Network â†’
           </button>
         )}
       </div>
     </div>
   );
 }
+
